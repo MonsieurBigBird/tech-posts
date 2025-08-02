@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install Node.js dependencies
+      run: npm ci
+    
+    - name: Build CSS
+      run: npm run build:css
+    
+    - name: Setup Roc
+      run: |
+        curl -OL https://github.com/roc-lang/roc/releases/latest/download/roc-macos_apple_silicon.tar.gz
+        tar xf roc-macos_apple_silicon.tar.gz
+        echo "$PWD/roc_nightly-macos_apple_silicon-$(date +%Y-%m-%d)-*" >> $GITHUB_PATH
+    
+    - name: Test Roc compilation
+      run: roc run src/main.roc --help || true
+    
+    - name: Check Roc syntax
+      run: roc check src/main.roc
+
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Build CSS
+      run: npm run build:css
+    
+    - name: Setup Roc
+      run: |
+        curl -OL https://github.com/roc-lang/roc/releases/latest/download/roc-macos_apple_silicon.tar.gz
+        tar xf roc-macos_apple_silicon.tar.gz
+        echo "$PWD/roc_nightly-macos_apple_silicon-$(date +%Y-%m-%d)-*" >> $GITHUB_PATH
+    
+    - name: Build Roc application
+      run: roc build src/main.roc --optimize 

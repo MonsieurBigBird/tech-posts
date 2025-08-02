@@ -1,0 +1,44 @@
+{
+  "name": "tech-posts",
+  "version": "1.0.0",
+  "description": "A Roc-powered SSR tech blog with Tailwind CSS, HTMX, Alpine.js, and Mermaid.js.",
+  "scripts": {
+    "build:css": "tailwindcss -c tailwind.config.js -i ./static/css/tailwind.css -o ./static/css/output.css",
+    "build:css:watch": "tailwindcss -c tailwind.config.js -i ./static/css/tailwind.css -o ./static/css/output.css --watch",
+    "dev": "roc run src/main.roc",
+    "dev:build": "roc build src/main.roc --optimize",
+    "start": "roc run src/main.roc",
+    "check": "roc check src/main.roc",
+    "test": "echo \"No tests specified yet\" && exit 0",
+    "lint": "echo \"No linter configured yet\" && exit 0",
+    "clean": "rm -rf static/css/output.css",
+    "setup": "npm install && npm run build:css"
+  },
+  "keywords": [
+    "roc",
+    "htmx",
+    "alpinejs",
+    "tailwindcss",
+    "ssr",
+    "blog",
+    "functional-programming"
+  ],
+  "author": "Your Name",
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "@tailwindcss/typography": "^0.5.9",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/roc-ssr-blog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/roc-ssr-blog/issues"
+  },
+  "homepage": "https://github.com/yourusername/roc-ssr-blog#readme"
+} 

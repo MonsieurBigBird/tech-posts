@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/static/css/output.css">
+  <script src="/static/js/htmx.min.js"></script>
+  <script src="/static/js/alpine.min.js" defer></script>
+  <script src="/static/js/mermaid.min.js"></script>
+</head>
+<body>
+  <header class="p-4 bg-gray-900 text-white font-bold text-xl">Roc Tech Blog</header>
+  <main class="prose mx-auto p-4">
+    {{{ content }}}
+  </main>
+  <footer class="p-4 text-center text-gray-500">&copy; 2025 Roc Tech Blog</footer>
+  <script>mermaid.initialize({ startOnLoad: true });</script>
+</body>
+</html> 
