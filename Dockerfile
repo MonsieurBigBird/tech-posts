@@ -44,7 +44,7 @@ COPY content/ ./content/
 RUN npm run build:css
 
 # Build Roc application
-RUN roc build src/main.roc --linker legacy
+RUN roc build src/main.roc --linker legacy --output main
 
 # Expose port (Railway will set PORT environment variable)
 EXPOSE 8000

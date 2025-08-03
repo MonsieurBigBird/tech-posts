@@ -27,15 +27,17 @@ jobs:
     
     - name: Setup Roc
       run: |
-        curl -OL https://github.com/roc-lang/roc/releases/latest/download/roc-macos_apple_silicon.tar.gz
-        tar xf roc-macos_apple_silicon.tar.gz
-        echo "$PWD/roc_nightly-macos_apple_silicon-$(date +%Y-%m-%d)-*" >> $GITHUB_PATH
+        wget -O roc.tar.gz "https://github.com/roc-lang/roc/releases/download/alpha3-rolling/roc-linux_x86_64-alpha3-rolling.tar.gz"
+        tar -xzf roc.tar.gz
+        sudo mv roc_nightly-linux_x86_64-*/roc /usr/local/bin/
+        rm -rf roc_nightly-linux_x86_64-*
+        rm roc.tar.gz
     
     - name: Test Roc compilation
-      run: roc run src/main.roc --help || true
-    
-    - name: Check Roc syntax
       run: roc check src/main.roc
+    
+    - name: Build Roc application
+      run: roc build src/main.roc --linker legacy
 
   build:
     runs-on: ubuntu-latest
@@ -58,9 +60,11 @@ jobs:
     
     - name: Setup Roc
       run: |
-        curl -OL https://github.com/roc-lang/roc/releases/latest/download/roc-macos_apple_silicon.tar.gz
-        tar xf roc-macos_apple_silicon.tar.gz
-        echo "$PWD/roc_nightly-macos_apple_silicon-$(date +%Y-%m-%d)-*" >> $GITHUB_PATH
+        wget -O roc.tar.gz "https://github.com/roc-lang/roc/releases/download/alpha3-rolling/roc-linux_x86_64-alpha3-rolling.tar.gz"
+        tar -xzf roc.tar.gz
+        sudo mv roc_nightly-linux_x86_64-*/roc /usr/local/bin/
+        rm -rf roc_nightly-linux_x86_64-*
+        rm roc.tar.gz
     
     - name: Build Roc application
-      run: roc build src/main.roc --optimize 
+      run: roc build src/main.roc --linker legacy 
