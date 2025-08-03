@@ -25,6 +25,9 @@ respond! = |req, _|
 
     Stdout.line!("${datetime} ${Inspect.to_str(req.method)} ${req.uri}")?
 
+    # Get theme from query parameters or default to light
+    theme = getThemeFromRequest!(req)
+
     # Direct routing - no framework abstraction
     when req.uri is
         "/" -> 
@@ -32,7 +35,7 @@ respond! = |req, _|
                 {
                     status: 200,
                     headers: [],
-                    body: Str.to_utf8(blogHomepageHtml),
+                    body: Str.to_utf8(blogHomepageHtml!(theme)),
                 },
             )
         "/about" ->
@@ -40,16 +43,24 @@ respond! = |req, _|
                 {
                     status: 200,
                     headers: [],
-                    body: Str.to_utf8(blogAboutHtml),
+                    body: Str.to_utf8(blogAboutHtml!(theme)),
                 },
             )
-        "/css/output.css" -> serveCssFile!({})
+        "/static/css/output.css" -> serveCssFile!({})
         "/api/hello" ->
             Ok(
                 {
                     status: 200,
                     headers: [{name: "Content-Type", value: "text/html"}],
                     body: Str.to_utf8(htmxResponseHtml),
+                },
+            )
+        "/api/theme" ->
+            Ok(
+                {
+                    status: 200,
+                    headers: [{name: "Content-Type", value: "text/html"}],
+                    body: Str.to_utf8(themeSwitcherHtml!(theme)),
                 },
             )
         _ ->
@@ -60,6 +71,20 @@ respond! = |req, _|
                     body: Str.to_utf8(blogNotFoundHtml),
                 },
             )
+
+# Helper function to get theme from request query parameters
+getThemeFromRequest! : Request => Str
+getThemeFromRequest! = |req|
+    # Parse query string from URI to find theme parameter
+    uri = req.uri
+    
+    # Simple query parsing - look for theme=dark or theme=light in URI
+    if Str.contains(uri, "theme=dark") then
+        "dark"
+    else if Str.contains(uri, "theme=light") then
+        "light"
+    else
+        "light"
 
 # Helper function to serve CSS file
 serveCssFile! : {} => Result Response [ServerErr Str]
@@ -85,69 +110,159 @@ serveCssFile! = |_|
             )
 
 # Blog-specific HTML templates (your content)
-blogHomepageHtml =
-"""
+blogHomepageHtml! : Str => Str
+blogHomepageHtml! = |theme|
+    # In DaisyUI 5, light is the default theme, so no data-theme needed
+    # Only dark theme needs the data-theme attribute
+    themeAttr = when theme is
+        "dark" -> "data-theme=\"dark\""
+        _ -> ""
+    
+    """
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="en" ${themeAttr}>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>My Tech Blog</title>
-        <link rel="stylesheet" href="/css/output.css">
+        <link rel="stylesheet" href="/static/css/output.css">
         <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     </head>
-    <body class="bg-gray-50 min-h-screen">
-        <header class="bg-white shadow-sm border-b">
-            <div class="max-w-4xl mx-auto px-4 py-6">
-                <h1 class="text-3xl font-bold text-gray-900 mb-4">🚀 My Tech Blog</h1>
-                <nav class="space-x-4">
-                    <a href="/" class="text-blue-600 hover:text-blue-800 font-medium">Home</a> 
-                    <a href="/about" class="text-blue-600 hover:text-blue-800 font-medium">About</a>
-                    <a href="/blog" class="text-blue-600 hover:text-blue-800 font-medium">Blog</a>
-                </nav>
+    <body class="min-h-screen bg-base-100">
+        <div class="navbar bg-base-200 shadow-lg">
+            <div class="navbar-start">
+                <a href="/" class="btn btn-ghost text-xl">🚀 My Tech Blog</a>
             </div>
-        </header>
-        <main class="max-w-4xl mx-auto px-4 py-8">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-4">Welcome to My Technical Thoughts</h2>
-            <p class="text-gray-600 mb-6">This is where I share my thoughts on Roc, HTMX, and modern web development.</p>
+            <div class="navbar-center">
+                <ul class="menu menu-horizontal px-1">
+                    <li><a href="/" class="text-primary">Home</a></li>
+                    <li><a href="/about" class="text-primary">About</a></li>
+                    <li><a href="/blog" class="text-primary">Blog</a></li>
+                </ul>
+            </div>
+            <div class="navbar-end">
+                ${themeSwitcherInline!(theme)}
+            </div>
+        </div>
+        
+        <main class="container mx-auto px-4 py-8">
+            <div class="hero bg-base-200 rounded-lg p-8 mb-8">
+                <div class="hero-content text-center">
+                    <div class="max-w-md">
+                        <h1 class="text-5xl font-bold text-primary">Welcome!</h1>
+                        <p class="py-6 text-base-content">This is where I share my thoughts on Roc, HTMX, and modern web development with DaisyUI theming.</p>
+                        <button class="btn btn-primary" hx-get="/api/hello" hx-target="#message">Click me for HTMX magic!</button>
+                    </div>
+                </div>
+            </div>
             
-            <div class="space-y-4">
-                <button class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors" hx-get="/api/hello" hx-target="#message">Click me for HTMX magic!</button>
-                <div id="message" class="mt-4 p-4 bg-gray-100 rounded-lg"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <h2 class="card-title text-primary">🚀 Roc Language</h2>
+                        <p class="text-base-content">Exploring the functional programming language Roc for web development.</p>
+                        <div class="card-actions justify-end">
+                            <button class="btn btn-primary">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <h2 class="card-title text-secondary">⚡ HTMX</h2>
+                        <p class="text-base-content">Dynamic web interactions without complex JavaScript frameworks.</p>
+                        <div class="card-actions justify-end">
+                            <button class="btn btn-secondary">Explore</button>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
+            <div id="message" class="mt-8"></div>
         </main>
+        
+        <footer class="footer footer-center p-10 bg-base-200 text-base-content">
+            <div>
+                <p>Copyright © 2025 - All rights reserved by Roc Tech Blog</p>
+            </div>
+        </footer>
     </body>
     </html>
-"""
+    """
 
-blogAboutHtml =
-"""
+blogAboutHtml! : Str => Str
+blogAboutHtml! = |theme|
+    # In DaisyUI 5, light is the default theme, so no data-theme needed
+    # Only dark theme needs the data-theme attribute
+    themeAttr = when theme is
+        "dark" -> "data-theme=\"dark\""
+        _ -> ""
+    
+    """
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="en" ${themeAttr}>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>About - My Tech Blog</title>
-        <link rel="stylesheet" href="/css/output.css">
+        <link rel="stylesheet" href="/static/css/output.css">
         <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     </head>
-    <body class="bg-gray-50 min-h-screen">
-        <header class="bg-white shadow-sm border-b">
-            <div class="max-w-4xl mx-auto px-4 py-6">
-                <h1 class="text-3xl font-bold text-gray-900 mb-4">About</h1>
-                <nav class="space-x-4">
-                    <a href="/" class="text-blue-600 hover:text-blue-800 font-medium">Home</a> 
-                    <a href="/about" class="text-blue-600 hover:text-blue-800 font-medium">About</a>
-                </nav>
+    <body class="min-h-screen bg-base-100">
+        <div class="navbar bg-base-200 shadow-lg">
+            <div class="navbar-start">
+                <a href="/" class="btn btn-ghost text-xl">🚀 My Tech Blog</a>
             </div>
-        </header>
-        <main class="max-w-4xl mx-auto px-4 py-8">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-4">About Me</h2>
-            <p class="text-gray-600">I'm a developer exploring modern web technologies like Roc and HTMX. This blog is where I share my learnings and thoughts.</p>
+            <div class="navbar-center">
+                <ul class="menu menu-horizontal px-1">
+                    <li><a href="/" class="text-primary">Home</a></li>
+                    <li><a href="/about" class="text-primary">About</a></li>
+                    <li><a href="/blog" class="text-primary">Blog</a></li>
+                </ul>
+            </div>
+            <div class="navbar-end">
+                ${themeSwitcherInline!(theme)}
+            </div>
+        </div>
+        
+        <main class="container mx-auto px-4 py-8">
+            <div class="hero bg-base-200 rounded-lg p-8 mb-8">
+                <div class="hero-content text-center">
+                    <div class="max-w-md">
+                        <h1 class="text-5xl font-bold text-primary">About Me</h1>
+                        <p class="py-6 text-base-content">I'm a developer exploring modern web technologies like Roc and HTMX. This blog is where I share my learnings and thoughts.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card bg-base-100 shadow-xl">
+                <div class="card-body">
+                    <h2 class="card-title text-primary">My Journey</h2>
+                    <p class="text-base-content">Exploring functional programming with Roc, modern web development with HTMX, and creating beautiful UIs with DaisyUI and Tailwind CSS.</p>
+                    <div class="stats shadow mt-4">
+                        <div class="stat">
+                            <div class="stat-title">Technologies</div>
+                            <div class="stat-value text-primary">Roc + HTMX</div>
+                            <div class="stat-desc">Functional Web Development</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-title">Styling</div>
+                            <div class="stat-value text-secondary">DaisyUI</div>
+                            <div class="stat-desc">Beautiful Components</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
+        
+        <footer class="footer footer-center p-10 bg-base-200 text-base-content">
+            <div>
+                <p>Copyright © 2025 - All rights reserved by Roc Tech Blog</p>
+            </div>
+        </footer>
     </body>
     </html>
-"""
+    """
 
 blogNotFoundHtml =
 """
@@ -169,19 +284,63 @@ blogNotFoundHtml =
 # HTMX response template
 htmxResponseHtml =
 """
-    <div class="p-4 bg-green-50 border border-green-200 rounded-lg">
-        <div class="flex items-center">
-            <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-            </svg>
-            <h4 class="text-green-800 font-semibold">HTMX Magic Working! ✨</h4>
-        </div>
-        <p class="text-green-700 mt-2">
-            This content was loaded dynamically using HTMX without a page refresh. 
-            The power of modern web development with Roc and HTMX!
-        </p>
-        <div class="mt-3 text-sm text-green-600">
-            <strong>Status:</strong> Successfully loaded via HTMX
+    <div class="alert alert-success shadow-lg">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        <div>
+            <h3 class="font-bold">HTMX Magic Working! ✨</h3>
+            <div class="text-xs">This content was loaded dynamically using HTMX without a page refresh. The power of modern web development with Roc and HTMX!</div>
         </div>
     </div>
-""" 
+"""
+
+# Theme switcher component
+themeSwitcherHtml! : Str => Str
+themeSwitcherHtml! = |currentTheme|
+    nextTheme = when currentTheme is
+        "dark" -> "light"
+        _ -> "dark"
+    
+    checkedAttr = when currentTheme is
+        "dark" -> "checked"
+        _ -> ""
+    
+    """
+    <a href="/?theme=${nextTheme}" class="swap swap-rotate">
+        <input type="checkbox" 
+               class="theme-controller" 
+               ${checkedAttr} />
+        <svg class="swap-on fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/>
+        </svg>
+        <svg class="swap-off fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/>
+        </svg>
+    </a>
+    """
+
+# Helper function to generate theme switcher HTML inline
+themeSwitcherInline! : Str => Str
+themeSwitcherInline! = |theme|
+    nextTheme = when theme is
+        "dark" -> "light"
+        _ -> "dark"
+    
+    checkedAttr = when theme is
+        "dark" -> "checked"
+        _ -> ""
+    
+    """
+    <a href="/?theme=${nextTheme}" class="swap swap-rotate">
+        <input type="checkbox" 
+               class="theme-controller" 
+               ${checkedAttr} />
+        <svg class="swap-on fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/>
+        </svg>
+        <svg class="swap-off fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/>
+        </svg>
+    </a>
+    """ 
