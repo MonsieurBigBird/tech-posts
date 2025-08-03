@@ -4,6 +4,7 @@ FROM --platform=linux/amd64 ubuntu:22.04
 # Set environment variables
 ENV DEBIAN_FRONTEND=noninteractive
 ENV ROC_VERSION=0.12.0
+ENV ROC_BASIC_WEBSERVER_HOST=0.0.0.0
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
