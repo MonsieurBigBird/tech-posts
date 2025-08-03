@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "A Roc-powered SSR tech blog with Tailwind CSS, HTMX, Alpine.js, and Mermaid.js.",
   "scripts": {
-    "build:css": "tailwindcss -c tailwind.config.js -i ./static/css/tailwind.css -o ./static/css/output.css",
-    "build:css:watch": "tailwindcss -c tailwind.config.js -i ./static/css/tailwind.css -o ./static/css/output.css --watch",
+    "build:css": "npx @tailwindcss/cli -i app.css -o static/css/output.css",
+    "build:css:watch": "npx @tailwindcss/cli -i app.css -o static/css/output.css --watch",
     "dev": "roc run src/main.roc",
     "dev:build": "roc build src/main.roc --optimize",
     "start": "roc run src/main.roc",

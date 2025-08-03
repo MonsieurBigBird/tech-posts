@@ -1,0 +1,97 @@
+# Cursor Rules for Roc SSR Blog Application
+
+## Project Overview
+This is a Server-Side Rendered (SSR) blog application built with:
+- **Roc** as the backend/serving layer (functional programming language)
+- **HTMX** for dynamic frontend interactions
+- **Tailwind CSS** for themed styling
+- **Static content** primarily for blog posts
+
+## Roc Language Guidelines
+
+### Conservative Approach
+- **Always consult Roc documentation** before making substantial changes to Roc code
+- Reference: https://www.roc-lang.org/
+- Be conservative with Roc syntax and patterns - prefer established idioms
+
+### Roc Best Practices
+- Use proper Roc syntax: `|param|` for function parameters, `when` for pattern matching
+- Follow Roc naming conventions: camelCase for variables, PascalCase for types
+- Use `!` suffix for functions that can fail (e.g., `init!`, `respond!`)
+- Prefer explicit type annotations when in doubt
+- Use `Result` types for error handling instead of exceptions
+
+### Roc Web Development
+- The application uses the `basic-webserver` platform
+- Environment variables control server behavior:
+  - `ROC_BASIC_WEBSERVER_PORT` - server port
+  - `ROC_BASIC_WEBSERVER_HOST` - binding address (0.0.0.0 for containerized deployment)
+- Request/Response handling is explicit and functional
+
+## Architecture Understanding
+
+### SSR Pattern
+- **Server-Side Rendering**: HTML is generated on the server (Roc)
+- **HTMX Enhancement**: Client-side interactions via HTMX without full page reloads
+- **Static Assets**: CSS, JS, and other static files served directly
+- **Content-First**: Primarily designed for blog post content delivery
+
+### File Structure
+- `src/main.roc` - Main Roc application entry point
+- `templates/` - HTML template strings (embedded in Roc)
+- `static/` - Static assets (CSS, JS)
+- `content/` - Blog post content (Markdown)
+- `Dockerfile` - Container configuration for deployment
+
+### Styling Approach
+- **Tailwind CSS** for utility-first styling
+- **Themed design** with consistent color schemes and typography
+- **Responsive design** for mobile and desktop
+- CSS is built from Tailwind source files
+
+## Development Guidelines
+
+### When Making Changes
+1. **Roc Code**: Consult documentation, be conservative, test thoroughly
+2. **HTML Templates**: Maintain semantic structure, accessibility
+3. **Styling**: Use Tailwind utilities, maintain theme consistency
+4. **Content**: Support Markdown blog posts with proper formatting
+
+### Testing
+- Test Roc compilation: `roc check src/main.roc`
+- Test CSS build: `npm run build:css`
+- Test containerized deployment locally
+- Verify HTMX interactions work correctly
+
+### Deployment Considerations
+- Application is containerized for Railway deployment
+- Platform-specific builds (linux/amd64) for production
+- Environment variables for port/host configuration
+- Static asset serving for CSS and JS files
+
+## Common Patterns
+
+### Roc Request Handling
+```roc
+respond! : Request, Model => Result Response [ServerErr Str]_
+respond! = |req, _|
+    when req.uri is
+        "/" -> Ok({ status: 200, headers: [], body: ... })
+        _ -> Ok({ status: 404, headers: [], body: ... })
+```
+
+### HTMX Integration
+- Use `hx-get`, `hx-post` attributes for dynamic content
+- Target specific elements with `hx-target`
+- Maintain server-side rendering for initial page loads
+
+### Content Serving
+- Blog posts served as HTML from Markdown content
+- Static files (CSS, JS) served with proper MIME types
+- Error handling for missing content
+
+## Error Handling
+- Use Roc's `Result` type for error handling
+- Provide meaningful error messages
+- Graceful degradation for missing assets
+- Proper HTTP status codes for different scenarios 
