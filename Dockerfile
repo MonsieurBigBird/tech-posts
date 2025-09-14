@@ -47,15 +47,8 @@ RUN npm run build:css
 # Build Roc application
 RUN roc build src/main.roc --linker legacy --output main
 
-# Expose port (Railway will set PORT environment variable)
-EXPOSE 8000
-
-# Create a startup script to handle Railway's PORT environment variable
-RUN echo '#!/bin/bash\n\
-if [ -n "$PORT" ]; then\n\
-    export ROC_BASIC_WEBSERVER_PORT=$PORT\n\
-fi\n\
-exec ./main' > /app/start.sh && chmod +x /app/start.sh
+# Expose port
+EXPOSE 8080
 
 # Start the application
-CMD ["/app/start.sh"]
+CMD ["./main"]
