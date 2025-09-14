@@ -31,9 +31,10 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 COPY tailwind.config.js ./
+COPY app.css ./
 
 # Install Node.js dependencies
-RUN npm ci --only=production
+RUN npm ci
 
 # Copy source code
 COPY src/ ./src/

@@ -1,30 +1,30 @@
-# fly.toml app configuration file generated for tech-posts on 2025-01-27T00:00:00Z
+# fly.toml app configuration file generated for tech-posts-rough-fire-7190 on 2025-09-13T19:40:53-07:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "tech-posts"
-primary_region = "sjc"
+app = 'tech-posts-rough-fire-7190'
+primary_region = 'sjc'
 
 [build]
 
 [env]
-  ROC_BASIC_WEBSERVER_HOST = "0.0.0.0"
-  ROC_BASIC_WEBSERVER_PORT = "8080"
+  ROC_BASIC_WEBSERVER_HOST = '0.0.0.0'
+  ROC_BASIC_WEBSERVER_PORT = '8080'
 
 [http_service]
   internal_port = 8080
   force_https = true
-  auto_stop_machines = true
+  auto_stop_machines = 'stop'
   auto_start_machines = true
   min_machines_running = 0
-  processes = ["app"]
+  processes = ['app']
 
 [[vm]]
-  cpu_kind = "shared"
+  cpu_kind = 'shared'
   cpus = 1
   memory_mb = 256
 
 [[statics]]
-  guest_path = "/static"
-  url_prefix = "/static"
+  guest_path = '/static'
+  url_prefix = '/static'
