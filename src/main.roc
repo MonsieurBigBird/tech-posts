@@ -19,7 +19,7 @@ import pf.Utc
 import Home
 import About
 import Blog
-import Posts.MyFirstPost
+import Posts.TaxonomizeYourInfrastructure
 import Api
 import NotFound
 import Files
@@ -66,12 +66,12 @@ respond! = |req, _|
                     body: Str.to_utf8(Blog.blogPageHtml!({})),
                 },
             )
-        "/blog/my-first-post" ->
+        "/blog/taxonomize-your-infrastructure" ->
             Ok(
                 {
                     status: 200,
                     headers: [],
-                    body: Str.to_utf8(Posts.MyFirstPost.blogPostPageHtml!("my-first-post")),
+                    body: Str.to_utf8(Posts.TaxonomizeYourInfrastructure.blogPostPageHtml!("taxonomize-your-infrastructure")),
                 },
             )
         "/static/css/output.css" -> Files.serveCssFile!({})
@@ -140,7 +140,7 @@ respond! = |req, _|
 # - Home.roc: Home page content
 # - About.roc: About page content and image serving
 # - Blog.roc: Blog listing page
-# - MyFirstPost.roc: Individual blog post content
+# - TaxonomizeYourInfrastructure.roc: Individual blog post content
 # - Shared.roc: Base layout, navbar, footer, and shared utilities
 # - Api.roc: HTMX responses and API endpoints
 # - NotFound.roc: 404 page content
