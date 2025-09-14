@@ -29,12 +29,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/roc-ssr-blog.git"
+    "url": "https://github.com/MonsieurBigBird/tech-posts.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/roc-ssr-blog/issues"
+    "url": "https://github.com/MonsieurBigBird/tech-posts/issues"
   },
-  "homepage": "https://github.com/yourusername/roc-ssr-blog#readme",
+  "homepage": "https://github.com/MonsieurBigBird/tech-posts#readme",
   "dependencies": {
     "@tailwindcss/typography": "^0.5.9",
     "autoprefixer": "^10.4.0",

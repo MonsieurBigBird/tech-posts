@@ -94,4 +94,4 @@ respond! = |req, _|
 - Use Roc's `Result` type for error handling
 - Provide meaningful error messages
 - Graceful degradation for missing assets
-- Proper HTTP status codes for different scenarios 
+- Proper HTTP status codes for different scenarios
