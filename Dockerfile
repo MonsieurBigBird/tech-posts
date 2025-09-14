@@ -39,8 +39,6 @@ RUN npm ci
 # Copy source code
 COPY src/ ./src/
 COPY static/ ./static/
-COPY templates/ ./templates/
-COPY content/ ./content/
 
 # Build CSS
 RUN npm run build:css
