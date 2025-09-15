@@ -20,7 +20,12 @@ serveCssFile! = |_|
             Ok(
                 {
                     status: 200,
-                    headers: [{name: "Content-Type", value: "text/css"}],
+                    headers: [
+                        {name: "Content-Type", value: "text/css"},
+                        {name: "Cache-Control", value: "public, max-age=31536000, immutable"},
+                        {name: "ETag", value: "\"css-v1\""},
+                        {name: "Vary", value: "Accept-Encoding"}
+                    ],
                     body: Str.to_utf8(css),
                 },
             )
@@ -43,7 +48,12 @@ serveIconsCssFile! = |_|
             Ok(
                 {
                     status: 200,
-                    headers: [{name: "Content-Type", value: "text/css"}],
+                    headers: [
+                        {name: "Content-Type", value: "text/css"},
+                        {name: "Cache-Control", value: "public, max-age=31536000, immutable"},
+                        {name: "ETag", value: "\"icons-css-v1\""},
+                        {name: "Vary", value: "Accept-Encoding"}
+                    ],
                     body: Str.to_utf8(css),
                 },
             )
@@ -67,7 +77,12 @@ serveImageFile! = |filePath, mimeType|
             Ok(
                 {
                     status: 200,
-                    headers: [{name: "Content-Type", value: mimeType}],
+                    headers: [
+                        {name: "Content-Type", value: mimeType},
+                        {name: "Cache-Control", value: "public, max-age=31536000, immutable"},
+                        {name: "ETag", value: "\"img-v1\""},
+                        {name: "Vary", value: "Accept-Encoding"}
+                    ],
                     body: imageBytes,
                 },
             )

@@ -46,7 +46,11 @@ respond! = |req, _|
             Ok(
                 {
                     status: 200,
-                    headers: [],
+                    headers: [
+                        {name: "Content-Type", value: "text/html; charset=utf-8"},
+                        {name: "Cache-Control", value: "public, max-age=3600, s-maxage=86400"},
+                        {name: "ETag", value: "\"home-v1\""}
+                    ],
                     body: Str.to_utf8(Home.homePageHtml!({})),
                 },
             )
@@ -54,7 +58,11 @@ respond! = |req, _|
             Ok(
                 {
                     status: 200,
-                    headers: [],
+                    headers: [
+                        {name: "Content-Type", value: "text/html; charset=utf-8"},
+                        {name: "Cache-Control", value: "public, max-age=3600, s-maxage=86400"},
+                        {name: "ETag", value: "\"about-v1\""}
+                    ],
                     body: Str.to_utf8(About.aboutPageHtml!({})),
                 },
             )
@@ -62,7 +70,11 @@ respond! = |req, _|
             Ok(
                 {
                     status: 200,
-                    headers: [],
+                    headers: [
+                        {name: "Content-Type", value: "text/html; charset=utf-8"},
+                        {name: "Cache-Control", value: "public, max-age=1800, s-maxage=3600"},
+                        {name: "ETag", value: "\"blog-v1\""}
+                    ],
                     body: Str.to_utf8(Blog.blogPageHtml!({})),
                 },
             )
@@ -70,7 +82,11 @@ respond! = |req, _|
             Ok(
                 {
                     status: 200,
-                    headers: [],
+                    headers: [
+                        {name: "Content-Type", value: "text/html; charset=utf-8"},
+                        {name: "Cache-Control", value: "public, max-age=7200, s-maxage=86400"},
+                        {name: "ETag", value: "\"post-taxonomize-v1\""}
+                    ],
                     body: Str.to_utf8(Posts.TaxonomizeYourInfrastructure.blogPostPageHtml!("taxonomize-your-infrastructure")),
                 },
             )

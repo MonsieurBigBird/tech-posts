@@ -149,7 +149,7 @@ aboutContentHtml =
                                 <p class="text-xs sm:text-sm text-gray-600">Scalable infrastructure for complex toolchains</p>
                             </div>
                             <div class="card-back" style="display: flex; align-items: center; justify-content: center;">
-                                <img src="/static/icons/bazel.png" class="w-12 h-12 sm:w-16 sm:h-16 object-contain" alt="">
+                                <img src="/static/icons/bazel.png" class="w-20 h-20 sm:w-24 sm:h-24 object-contain" alt="">
                             </div>
                         </div>
                         <div class="infrastructure-card ci-cd">
@@ -157,9 +157,9 @@ aboutContentHtml =
                                 <h4 class="font-semibold text-primary text-sm sm:text-base">CI/CD Pipelines</h4>
                                 <p class="text-xs sm:text-sm text-gray-600">Robust automation for engineering workflows</p>
                             </div>
-                            <div class="card-back" style="display: flex; align-items: center; justify-content: center; gap: 2px; flex-direction: row;">
-                                <img src="/static/icons/jenkins.png" class="w-8 h-8 sm:w-12 sm:h-12 object-contain" alt="">
-                                <img src="/static/icons/gitlab.png" class="w-8 h-8 sm:w-12 sm:h-12 object-contain" alt="">
+                            <div class="card-back" style="display: flex; align-items: center; justify-content: center; gap: 6px; flex-direction: row;">
+                                <img src="/static/icons/jenkins.png" class="w-16 h-16 sm:w-20 sm:h-20 object-contain" alt="">
+                                <img src="/static/icons/gitlab.png" class="w-16 h-16 sm:w-20 sm:h-20 object-contain" alt="">
                             </div>
                         </div>
                         <div class="infrastructure-card developer-productivity">
@@ -167,10 +167,10 @@ aboutContentHtml =
                                 <h4 class="font-semibold text-primary text-sm sm:text-base">Developer Productivity</h4>
                                 <p class="text-xs sm:text-sm text-gray-600">Dashboards, CLI tools, and APIs that engineers love</p>
                             </div>
-                            <div class="card-back" style="display: flex; align-items: center; justify-content: center; gap: 1px; flex-direction: row;">
-                                <img src="/static/icons/opentelemetry.png" class="w-6 h-6 sm:w-10 sm:h-10 object-contain" alt="">
-                                <img src="/static/icons/grafana.png" class="w-6 h-6 sm:w-10 sm:h-10 object-contain" alt="">
-                                <img src="/static/icons/elasticsearch.jpg" class="w-6 h-6 sm:w-10 sm:h-10 object-contain" alt="">
+                            <div class="card-back" style="display: flex; align-items: center; justify-content: center; gap: 4px; flex-direction: row;">
+                                <img src="/static/icons/opentelemetry.png" class="w-14 h-14 sm:w-16 sm:h-16 object-contain" alt="">
+                                <img src="/static/icons/grafana.png" class="w-14 h-14 sm:w-16 sm:h-16 object-contain" alt="">
+                                <img src="/static/icons/elasticsearch.jpg" class="w-14 h-14 sm:w-16 sm:h-16 object-contain" alt="">
                             </div>
                         </div>
                         <div class="infrastructure-card version-control">
@@ -178,9 +178,9 @@ aboutContentHtml =
                                 <h4 class="font-semibold text-primary text-sm sm:text-base">Version Control</h4>
                                 <p class="text-xs sm:text-sm text-gray-600">Scalable workflow patterns for distributed teams</p>
                             </div>
-                            <div class="card-back" style="display: flex; align-items: center; justify-content: center; gap: 2px; flex-direction: row;">
-                                <img src="/static/icons/git.png" class="w-8 h-8 sm:w-12 sm:h-12 object-contain" alt="">
-                                <img src="/static/icons/perforce.jpg" class="w-8 h-8 sm:w-12 sm:h-12 object-contain" alt="">
+                            <div class="card-back" style="display: flex; align-items: center; justify-content: center; gap: 6px; flex-direction: row;">
+                                <img src="/static/icons/git.png" class="w-16 h-16 sm:w-20 sm:h-20 object-contain" alt="">
+                                <img src="/static/icons/perforce.jpg" class="w-16 h-16 sm:w-20 sm:h-20 object-contain" alt="">
                             </div>
                         </div>
                     </div>

@@ -67,7 +67,7 @@ baseLayoutHtml! = |title, activeNav, content|
             /* 3D Sphere Styles */
             .sphere-container {
                 perspective: 1000px;
-                height: 450px;
+                height: 300px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -78,8 +78,8 @@ baseLayoutHtml! = |title, activeNav, content|
             
             .sphere {
                 position: relative;
-                width: 350px;
-                height: 350px;
+                width: 250px;
+                height: 250px;
                 transform-style: preserve-3d;
                 animation: rotateSphere 20s linear infinite;
                 cursor: grab;
@@ -106,12 +106,12 @@ baseLayoutHtml! = |title, activeNav, content|
                 border-radius: 50%;
             }
             
-            .sphere-front { transform: rotateY(0deg) translateZ(175px); }
-            .sphere-back { transform: rotateY(180deg) translateZ(175px); }
-            .sphere-right { transform: rotateY(90deg) translateZ(175px); }
-            .sphere-left { transform: rotateY(-90deg) translateZ(175px); }
-            .sphere-top { transform: rotateX(90deg) translateZ(175px); }
-            .sphere-bottom { transform: rotateX(-90deg) translateZ(175px); }
+            .sphere-front { transform: rotateY(0deg) translateZ(125px); }
+            .sphere-back { transform: rotateY(180deg) translateZ(125px); }
+            .sphere-right { transform: rotateY(90deg) translateZ(125px); }
+            .sphere-left { transform: rotateY(-90deg) translateZ(125px); }
+            .sphere-top { transform: rotateX(90deg) translateZ(125px); }
+            .sphere-bottom { transform: rotateX(-90deg) translateZ(125px); }
             
             @keyframes rotateSphere {
                 0% { transform: rotateY(0deg) rotateX(0deg); }
@@ -173,7 +173,7 @@ baseLayoutHtml! = |title, activeNav, content|
                 transition: transform 0.4s ease-in-out, background 0.2s ease, border-color 0.2s ease;
                 position: relative;
                 transform-style: preserve-3d;
-                min-height: 100px;
+                min-height: 140px;
                 height: auto;
                 cursor: pointer;
                 background-size: 40px 40px;
@@ -184,8 +184,8 @@ baseLayoutHtml! = |title, activeNav, content|
             
             @media (min-width: 640px) {
                 .infrastructure-card {
-                    height: 80px;
-                    min-height: 80px;
+                    height: 120px;
+                    min-height: 120px;
                 }
             }
             
@@ -928,12 +928,13 @@ navbarHtml! = |activeNav|
     """
     <div class="navbar bg-base-200 shadow-lg">
         <div class="navbar-start">
-            <a href="/" class="btn btn-ghost text-lg sm:text-xl font-mono">
-                <svg class="w-5 h-5 sm:w-6 sm:h-6 inline mr-1 sm:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <a href="/" class="btn btn-ghost text-sm sm:text-lg lg:text-xl font-mono">
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 inline mr-1 sm:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5.25 14.25H18.75M5.25 14.25C3.59315 14.25 2.25 12.9069 2.25 11.25M5.25 14.25C3.59315 14.25 2.25 15.5931 2.25 17.25C2.25 18.9069 3.59315 20.25 5.25 20.25H18.75C20.4069 20.25 21.75 18.9069 21.75 17.25C21.75 15.5931 20.4069 14.25 18.75 14.25M2.25 11.25C2.25 9.59315 3.59315 8.25 5.25 8.25H18.75C20.4069 8.25 21.75 9.59315 21.75 11.25M2.25 11.25C2.25 10.2763 2.5658 9.32893 3.15 8.55L5.7375 5.1C6.37488 4.25016 7.37519 3.75 8.4375 3.75H15.5625C16.6248 3.75 17.6251 4.25016 18.2625 5.1L20.85 8.55C21.4342 9.32893 21.75 10.2763 21.75 11.25M21.75 11.25C21.75 12.9069 20.4069 14.25 18.75 14.25M18.75 17.25H18.7575V17.2575H18.75V17.25ZM18.75 11.25H18.7575V11.2575H18.75V11.25ZM15.75 17.25H15.7575V17.2575H15.75V17.25ZM15.75 11.25H15.7575V11.2575H15.75V11.25Z"/>
                 </svg>
-                <span class="hidden md:inline">> mboisvert</span>
-                <span class="md:hidden">mboisvert</span>
+                <span class="hidden lg:inline">> mboisvert</span>
+                <span class="hidden sm:inline lg:hidden">mboisvert</span>
+                <span class="sm:hidden">mbois</span>
             </a>
         </div>
         <div class="navbar-center">
