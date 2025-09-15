@@ -5,7 +5,7 @@ module [
 import Shared
 
 blogPageHtml! : {} => Str
-blogPageHtml! = |_| Shared.baseLayoutHtml!("Blog - Software Engineer", "blog", blogContentHtml)
+blogPageHtml! = |_| Shared.baseLayoutHtml!("Blog - Matt Boisvert", "blog", blogContentHtml)
 blogContentHtml =
 """
 <div class="hero bg-base-200 rounded-lg p-8 mb-8 relative overflow-hidden">

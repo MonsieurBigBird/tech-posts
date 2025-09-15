@@ -5,7 +5,7 @@ module [
 import Shared
 
 homePageHtml! : {} => Str
-homePageHtml! = |_| Shared.baseLayoutHtml!("Home - Software Engineer", "home", homeContentHtml)
+homePageHtml! = |_| Shared.baseLayoutHtml!("Home - Matt Boisvert", "home", homeContentHtml)
 
 homeContentHtml =
 """
