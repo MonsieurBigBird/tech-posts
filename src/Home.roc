@@ -65,8 +65,8 @@ homeContentHtml =
     
     <div class="hero-content text-center">
         <div class="max-w-md">
-            <h1 class="text-5xl font-bold text-primary">Exploring engineering acceleration</h1>
-            <p class="py-6 text-base-content">Building robust, scalable platforms for developers</p>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary">Exploring engineering acceleration</h1>
+            <p class="py-4 sm:py-6 text-base-content text-sm sm:text-base">Building robust, scalable platforms for developers</p>
         </div>
     </div>
 </div>
@@ -102,55 +102,55 @@ homeContentHtml =
             <!-- System Visualization -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
                 <!-- Cluster Visualization -->
-                <div class="bg-base-200 rounded-lg p-6">
-                    <h3 class="font-semibold text-primary mb-6">Cluster Status</h3>
-                    <div class="relative h-64 bg-base-300 rounded-lg overflow-hidden">
+                <div class="bg-base-200 rounded-lg p-4 sm:p-6">
+                    <h3 class="font-semibold text-primary mb-4 sm:mb-6">Cluster Status</h3>
+                    <div class="relative h-48 sm:h-64 bg-base-300 rounded-lg overflow-hidden">
                         <!-- Dynamic nodes with realistic scaling and health indicators -->
                         <!-- Web node - top left -->
-                        <div class="cluster-node absolute top-6 left-6 w-20 h-20 bg-primary/20 rounded-lg border-2 border-primary/40 transition-all duration-2000 ease-in-out hover:scale-110 shadow-lg" id="web-node">
+                        <div class="cluster-node absolute top-3 sm:top-6 left-3 sm:left-6 w-16 h-16 sm:w-20 sm:h-20 bg-primary/20 rounded-lg border-2 border-primary/40 transition-all duration-2000 ease-in-out hover:scale-110 shadow-lg" id="web-node">
                             <div class="text-xs text-center mt-1 font-mono font-semibold">web-01</div>
                             <div class="flex justify-center mt-1 space-x-1" id="web-pods">
-                                <div class="w-3 h-3 bg-success rounded-full data-pulse border border-success-content/30"></div>
-                                <div class="w-3 h-3 bg-success rounded-full data-pulse border border-success-content/30" style="animation-delay: 0.2s;"></div>
-                                <div class="w-3 h-3 bg-success rounded-full data-pulse border border-success-content/30" style="animation-delay: 0.4s;"></div>
+                                <div class="w-2 h-2 sm:w-3 sm:h-3 bg-success rounded-full data-pulse border border-success-content/30"></div>
+                                <div class="w-2 h-2 sm:w-3 sm:h-3 bg-success rounded-full data-pulse border border-success-content/30" style="animation-delay: 0.2s;"></div>
+                                <div class="w-2 h-2 sm:w-3 sm:h-3 bg-success rounded-full data-pulse border border-success-content/30" style="animation-delay: 0.4s;"></div>
                             </div>
                             <div class="text-xs text-center mt-1 text-success font-medium" id="web-health">Healthy</div>
                         </div>
                         
                         <!-- API node - top right -->
-                        <div class="cluster-node absolute top-6 right-6 w-20 h-20 bg-secondary/20 rounded-lg border-2 border-secondary/40 transition-all duration-2000 ease-in-out hover:scale-110 shadow-lg" id="api-node">
+                        <div class="cluster-node absolute top-3 sm:top-6 right-3 sm:right-6 w-16 h-16 sm:w-20 sm:h-20 bg-secondary/20 rounded-lg border-2 border-secondary/40 transition-all duration-2000 ease-in-out hover:scale-110 shadow-lg" id="api-node">
                             <div class="text-xs text-center mt-1 font-mono font-semibold">api-01</div>
                             <div class="flex justify-center mt-1 space-x-1" id="api-pods">
-                                <div class="w-3 h-3 bg-warning rounded-full data-pulse border border-warning-content/30"></div>
-                                <div class="w-3 h-3 bg-warning rounded-full data-pulse border border-warning-content/30" style="animation-delay: 0.3s;"></div>
+                                <div class="w-2 h-2 sm:w-3 sm:h-3 bg-warning rounded-full data-pulse border border-warning-content/30"></div>
+                                <div class="w-2 h-2 sm:w-3 sm:h-3 bg-warning rounded-full data-pulse border border-warning-content/30" style="animation-delay: 0.3s;"></div>
                             </div>
                             <div class="text-xs text-center mt-1 text-warning-content font-medium" id="api-health">Scaling</div>
                         </div>
                         
                         <!-- DB node - centered at bottom for proper triangle -->
-                        <div class="cluster-node absolute bottom-6 w-20 h-20 bg-accent/20 rounded-lg border-2 border-accent/40 transition-all duration-2000 ease-in-out hover:scale-110 shadow-lg" id="db-node" style="left: 50%; transform: translateX(-50%);">
+                        <div class="cluster-node absolute bottom-3 sm:bottom-6 w-16 h-16 sm:w-20 sm:h-20 bg-accent/20 rounded-lg border-2 border-accent/40 transition-all duration-2000 ease-in-out hover:scale-110 shadow-lg" id="db-node" style="left: 50%; transform: translateX(-50%);">
                             <div class="text-xs text-center mt-1 font-mono font-semibold">db-01</div>
                             <div class="flex justify-center mt-1 space-x-1" id="db-pods">
-                                <div class="w-3 h-3 bg-info rounded-full data-pulse border border-info-content/30"></div>
+                                <div class="w-2 h-2 sm:w-3 sm:h-3 bg-info rounded-full data-pulse border border-info-content/30"></div>
                             </div>
                             <div class="text-xs text-center mt-1 text-info font-medium" id="db-health">Stable</div>
                         </div>
                         
                         <!-- Connection lines connecting to box edges, not through the middle -->
                         <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                            <!-- Web to DB connection (from web node bottom to db node top) - extended further -->
-                            <line x1="20" y1="35" x2="50" y2="55" stroke="currentColor" stroke-width="0.5" opacity="0.4" class="connection-line"/>
-                            <!-- API to DB connection (from api node bottom to db node top) - extended further -->
-                            <line x1="80" y1="35" x2="50" y2="55" stroke="currentColor" stroke-width="0.5" opacity="0.4" class="connection-line" style="animation-delay: 1s;"/>
-                            <!-- Web to API connection (from web node right to api node left) - balanced length -->
-                            <line x1="20" y1="20" x2="80" y2="20" stroke="currentColor" stroke-width="0.5" opacity="0.4" class="connection-line"/>
+                            <!-- Web to DB connection (from web node bottom to db node top) - responsive positioning -->
+                            <line x1="15" y1="30" x2="50" y2="60" stroke="currentColor" stroke-width="0.5" opacity="0.4" class="connection-line"/>
+                            <!-- API to DB connection (from api node bottom to db node top) - responsive positioning -->
+                            <line x1="85" y1="30" x2="50" y2="60" stroke="currentColor" stroke-width="0.5" opacity="0.4" class="connection-line" style="animation-delay: 1s;"/>
+                            <!-- Web to API connection (from web node right to api node left) - responsive positioning -->
+                            <line x1="15" y1="15" x2="85" y2="15" stroke="currentColor" stroke-width="0.5" opacity="0.4" class="connection-line"/>
                         </svg>
                     </div>
                 </div>
                 
                 <!-- Pipeline Visualization -->
-                <div class="bg-base-200 rounded-lg p-6">
-                    <h3 class="font-semibold text-secondary mb-6">Deployment Status</h3>
+                <div class="bg-base-200 rounded-lg p-4 sm:p-6">
+                    <h3 class="font-semibold text-secondary mb-4 sm:mb-6">Deployment Status</h3>
                     <div class="space-y-3" id="pipeline-stages">
                         <!-- Pipeline stages -->
                         <div class="flex items-center space-x-3">

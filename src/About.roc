@@ -67,8 +67,8 @@ aboutContentHtml =
     
     <div class="hero-content text-center">
         <div class="max-w-md">
-            <h1 class="text-5xl font-bold text-primary">About Me</h1>
-            <p class="py-6 text-base-content">Passionate about building robust, scalable software systems.</p>
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary">About Me</h1>
+            <p class="py-4 sm:py-6 text-base-content text-sm sm:text-base">Passionate about building robust, scalable software systems.</p>
             <div class="flex justify-center gap-2">
                 <a href="https://github.com/MonsieurBigBird" target="_blank" rel="noopener noreferrer" class="btn btn-ghost btn-circle">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -86,7 +86,7 @@ aboutContentHtml =
 </div>
 
 <!-- Main Content Section with Photo and About -->
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-8">
     <!-- Photo Column -->
     <div class="card bg-base-100 shadow-xl">
         <div class="card-body flex items-center justify-center">
@@ -142,45 +142,45 @@ aboutContentHtml =
                 
                 <div class="infrastructure-areas">
                     <h3 class="text-lg font-semibold text-secondary mb-3">Infrastructure Focus</h3>
-                    <div class="grid grid-cols-2 gap-3 mb-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
                         <div class="infrastructure-card build-systems">
                             <div class="card-front">
-                                <h4 class="font-semibold text-primary">Build Systems</h4>
-                                <p class="text-sm text-gray-600">Scalable infrastructure for complex toolchains</p>
+                                <h4 class="font-semibold text-primary text-sm sm:text-base">Build Systems</h4>
+                                <p class="text-xs sm:text-sm text-gray-600">Scalable infrastructure for complex toolchains</p>
                             </div>
                             <div class="card-back" style="display: flex; align-items: center; justify-content: center;">
-                                <img src="/static/icons/bazel.png" style="width: 80px; height: 80px; object-fit: contain;" alt="">
+                                <img src="/static/icons/bazel.png" class="w-12 h-12 sm:w-16 sm:h-16 object-contain" alt="">
                             </div>
                         </div>
                         <div class="infrastructure-card ci-cd">
                             <div class="card-front">
-                                <h4 class="font-semibold text-primary">CI/CD Pipelines</h4>
-                                <p class="text-sm text-gray-600">Robust automation for engineering workflows</p>
+                                <h4 class="font-semibold text-primary text-sm sm:text-base">CI/CD Pipelines</h4>
+                                <p class="text-xs sm:text-sm text-gray-600">Robust automation for engineering workflows</p>
                             </div>
-                            <div class="card-back" style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-direction: row;">
-                                <img src="/static/icons/jenkins.png" style="width: 80px; height: 80px; object-fit: contain;" alt="">
-                                <img src="/static/icons/gitlab.png" style="width: 80px; height: 80px; object-fit: contain;" alt="">
+                            <div class="card-back" style="display: flex; align-items: center; justify-content: center; gap: 2px; flex-direction: row;">
+                                <img src="/static/icons/jenkins.png" class="w-8 h-8 sm:w-12 sm:h-12 object-contain" alt="">
+                                <img src="/static/icons/gitlab.png" class="w-8 h-8 sm:w-12 sm:h-12 object-contain" alt="">
                             </div>
                         </div>
                         <div class="infrastructure-card developer-productivity">
                             <div class="card-front">
-                                <h4 class="font-semibold text-primary">Developer Productivity</h4>
-                                <p class="text-sm text-gray-600">Dashboards, CLI tools, and APIs that engineers love</p>
+                                <h4 class="font-semibold text-primary text-sm sm:text-base">Developer Productivity</h4>
+                                <p class="text-xs sm:text-sm text-gray-600">Dashboards, CLI tools, and APIs that engineers love</p>
                             </div>
-                            <div class="card-back" style="display: flex; align-items: center; justify-content: center; gap: 8px; flex-direction: row;">
-                                <img src="/static/icons/opentelemetry.png" style="width: 80px; height: 80px; object-fit: contain;" alt="">
-                                <img src="/static/icons/grafana.png" style="width: 80px; height: 80px; object-fit: contain;" alt="">
-                                <img src="/static/icons/elasticsearch.jpg" style="width: 80px; height: 80px; object-fit: contain;" alt="">
+                            <div class="card-back" style="display: flex; align-items: center; justify-content: center; gap: 1px; flex-direction: row;">
+                                <img src="/static/icons/opentelemetry.png" class="w-6 h-6 sm:w-10 sm:h-10 object-contain" alt="">
+                                <img src="/static/icons/grafana.png" class="w-6 h-6 sm:w-10 sm:h-10 object-contain" alt="">
+                                <img src="/static/icons/elasticsearch.jpg" class="w-6 h-6 sm:w-10 sm:h-10 object-contain" alt="">
                             </div>
                         </div>
                         <div class="infrastructure-card version-control">
                             <div class="card-front">
-                                <h4 class="font-semibold text-primary">Version Control</h4>
-                                <p class="text-sm text-gray-600">Scalable workflow patterns for distributed teams</p>
+                                <h4 class="font-semibold text-primary text-sm sm:text-base">Version Control</h4>
+                                <p class="text-xs sm:text-sm text-gray-600">Scalable workflow patterns for distributed teams</p>
                             </div>
-                            <div class="card-back" style="display: flex; align-items: center; justify-content: center; gap: 10px; flex-direction: row;">
-                                <img src="/static/icons/git.png" style="width: 80px; height: 80px; object-fit: contain;" alt="">
-                                <img src="/static/icons/perforce.jpg" style="width: 80px; height: 80px; object-fit: contain;" alt="">
+                            <div class="card-back" style="display: flex; align-items: center; justify-content: center; gap: 2px; flex-direction: row;">
+                                <img src="/static/icons/git.png" class="w-8 h-8 sm:w-12 sm:h-12 object-contain" alt="">
+                                <img src="/static/icons/perforce.jpg" class="w-8 h-8 sm:w-12 sm:h-12 object-contain" alt="">
                             </div>
                         </div>
                     </div>
