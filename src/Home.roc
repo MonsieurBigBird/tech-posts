@@ -88,15 +88,15 @@ homeContentHtml =
                            <p class="text-base-content/70 mb-4">
                                A systematic approach to thinking about infrastructure categorization for better design, maintainability, and longevity.
                            </p>
-                    <div class="flex items-center justify-between">
-                        <div class="flex items-center space-x-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                        <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
                             <span class="text-sm text-base-content/50">September 19, 2025</span>
-                            <span class="text-sm text-base-content/50">•</span>
+                            <span class="text-sm text-base-content/50 hidden sm:inline">•</span>
                             <span class="text-sm text-base-content/50">8 min read</span>
-                            <span class="text-sm text-base-content/50">•</span>
+                            <span class="text-sm text-base-content/50 hidden sm:inline">•</span>
                             <span class="text-sm text-base-content/50">by Matt Boisvert</span>
                         </div>
-                        <div class="flex space-x-1">
+                        <div class="flex flex-wrap gap-1">
                             <span class="badge badge-primary badge-sm">infrastructure</span>
                             <span class="badge badge-accent badge-sm">devops</span>
                         </div>
