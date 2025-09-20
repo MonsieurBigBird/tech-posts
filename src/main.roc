@@ -49,7 +49,7 @@ respond! = |req, _|
                     headers: [
                         {name: "Content-Type", value: "text/html; charset=utf-8"},
                         {name: "Cache-Control", value: "public, max-age=3600, s-maxage=86400"},
-                        {name: "ETag", value: "\"home-v1\""}
+                        {name: "ETag", value: "\"home-v3\""}
                     ],
                     body: Str.to_utf8(Home.homePageHtml!({})),
                 },
@@ -73,7 +73,7 @@ respond! = |req, _|
                     headers: [
                         {name: "Content-Type", value: "text/html; charset=utf-8"},
                         {name: "Cache-Control", value: "public, max-age=1800, s-maxage=3600"},
-                        {name: "ETag", value: "\"blog-v1\""}
+                        {name: "ETag", value: "\"blog-v3\""}
                     ],
                     body: Str.to_utf8(Blog.blogPageHtml!({})),
                 },
@@ -102,6 +102,8 @@ respond! = |req, _|
         "/static/icons/jenkins.png" -> Files.serveImageFile!("static/icons/jenkins.png", "image/png")
         "/static/icons/gitlab.png" -> Files.serveImageFile!("static/icons/gitlab.png", "image/png")
         "/static/icons/git.png" -> Files.serveImageFile!("static/icons/git.png", "image/png")
+        "/static/images/mock_diagram.png" -> Files.serveImageFile!("static/images/mock_diagram.png", "image/png")
+        "/static/images/simple_taxonomy.png" -> Files.serveImageFile!("static/images/simple_taxonomy.png", "image/png")
         "/api/hello" ->
             Ok(
                 {

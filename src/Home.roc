@@ -74,15 +74,32 @@ homeContentHtml =
 <div class="mb-8">
     <div class="card bg-base-100 shadow-xl">
         <div class="card-body">
-            <h2 class="card-title text-primary">Recent Posts</h2>
+            <h2 class="card-title text-primary">
+                <a href="/blog" class="hover:text-primary-focus transition-colors">Recent Posts</a>
+            </h2>
             <p class="text-base-content">Latest thoughts and experiments from my software engineering journey.</p>
             <div class="space-y-6">
-                <div class="border-l-4 border-accent pl-6 py-4">
-                    <h3 class="text-xl font-semibold mb-2">Post on the way</h3>
-                    <p class="text-base-content/70 mb-4">Working on some exciting content about software engineering and infrastructure. Stay tuned for updates!</p>
+                <div class="border-l-4 border-accent pl-6 py-4 hover:bg-base-200 transition-colors rounded-r-lg">
+                    <h3 class="text-xl font-semibold mb-2">
+                        <a href="/blog/taxonomize-your-infrastructure" class="text-primary hover:text-primary-focus transition-colors">
+                            Taxonomize Your Infrastructure
+                        </a>
+                    </h3>
+                           <p class="text-base-content/70 mb-4">
+                               A systematic approach to thinking about infrastructure categorization for better design, maintainability, and longevity.
+                           </p>
                     <div class="flex items-center justify-between">
-                        <span class="text-sm text-base-content/50">Coming soon</span>
-                        <span class="text-sm text-base-content/50">—</span>
+                        <div class="flex items-center space-x-4">
+                            <span class="text-sm text-base-content/50">September 19, 2025</span>
+                            <span class="text-sm text-base-content/50">•</span>
+                            <span class="text-sm text-base-content/50">8 min read</span>
+                            <span class="text-sm text-base-content/50">•</span>
+                            <span class="text-sm text-base-content/50">by Matt Boisvert</span>
+                        </div>
+                        <div class="flex space-x-1">
+                            <span class="badge badge-primary badge-sm">infrastructure</span>
+                            <span class="badge badge-accent badge-sm">devops</span>
+                        </div>
                     </div>
                 </div>
             </div>
