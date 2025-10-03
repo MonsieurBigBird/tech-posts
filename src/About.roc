@@ -116,7 +116,7 @@ aboutContentHtml =
                         Regardless of the particular domain, I want to dive deep into technical problems and provide creative solutions that make it easier for developers to ship quickly and effectively.
                     </p>
                     <p class="text-base-content leading-relaxed mt-4">
-                        Currently, I'm a Senior Software Engineer at NVIDIA where I work on CI/CD platforms, build systems, and developer tooling.
+                        Currently, I'm a Software Engineer at NVIDIA where I work on CI/CD platforms, build systems, and developer tooling.
                     </p>
                 </div>
                 
