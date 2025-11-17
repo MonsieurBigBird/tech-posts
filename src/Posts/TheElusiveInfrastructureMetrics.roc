@@ -169,7 +169,7 @@ elusiveInfrastructureContentHtml =
         </p>
 
 
-        <h3 class="text-xl font-semibold text-secondary mt-6 mb-3">2. Developer needs are often invisible to management (and vice versa)</h3>
+        <h3 class="text-xl font-semibold text-secondary mt-6 mb-3">2. Developer needs are often obfuscated from management (and vice versa)</h3>
         
         <!-- Angry Devs Image -->
         <div class="my-6">
