@@ -20,6 +20,7 @@ import Home
 import About
 import Blog
 import Posts.TaxonomizeYourInfrastructure
+import Posts.TheElusiveInfrastructureMetrics
 import Api
 import NotFound
 import Files
@@ -73,7 +74,7 @@ respond! = |req, _|
                     headers: [
                         {name: "Content-Type", value: "text/html; charset=utf-8"},
                         {name: "Cache-Control", value: "public, max-age=1800, s-maxage=3600"},
-                        {name: "ETag", value: "\"blog-v3\""}
+                        {name: "ETag", value: "\"blog-v4\""}
                     ],
                     body: Str.to_utf8(Blog.blogPageHtml!({})),
                 },
@@ -90,6 +91,18 @@ respond! = |req, _|
                     body: Str.to_utf8(Posts.TaxonomizeYourInfrastructure.blogPostPageHtml!("taxonomize-your-infrastructure")),
                 },
             )
+        "/blog/the-elusive-infrastructure-metrics" ->
+            Ok(
+                {
+                    status: 200,
+                    headers: [
+                        {name: "Content-Type", value: "text/html; charset=utf-8"},
+                        {name: "Cache-Control", value: "public, max-age=7200, s-maxage=86400"},
+                        {name: "ETag", value: "\"post-metrics-v1\""}
+                    ],
+                    body: Str.to_utf8(Posts.TheElusiveInfrastructureMetrics.blogPostPageHtml!("the-elusive-infrastructure-metrics")),
+                },
+            )
         "/static/css/output.css" -> Files.serveCssFile!({})
         "/static/css/icons.css" -> Files.serveIconsCssFile!({})
         "/static/images/beach.jpg" -> Files.serveImageFile!("static/images/beach.jpg", "image/jpeg")
@@ -104,6 +117,8 @@ respond! = |req, _|
         "/static/icons/git.png" -> Files.serveImageFile!("static/icons/git.png", "image/png")
         "/static/images/mock_diagram.png" -> Files.serveImageFile!("static/images/mock_diagram.png", "image/png")
         "/static/images/simple_taxonomy.png" -> Files.serveImageFile!("static/images/simple_taxonomy.png", "image/png")
+        "/static/images/metrics_diagram.png" -> Files.serveImageFile!("static/images/metrics_diagram.png", "image/png")
+        "/static/images/angry_devs.png" -> Files.serveImageFile!("static/images/angry_devs.png", "image/png")
         "/api/hello" ->
             Ok(
                 {

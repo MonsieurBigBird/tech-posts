@@ -79,6 +79,29 @@ homeContentHtml =
             </h2>
             <p class="text-base-content">Latest thoughts and experiments from my software engineering journey.</p>
             <div class="space-y-6">
+                <div class="border-l-4 border-secondary pl-6 py-4 hover:bg-base-200 transition-colors rounded-r-lg">
+                    <h3 class="text-xl font-semibold mb-2">
+                        <a href="/blog/the-elusive-infrastructure-metrics" class="text-primary hover:text-primary-focus transition-colors">
+                            The Elusive Infrastructure Metrics
+                        </a>
+                    </h3>
+                           <p class="text-base-content/70 mb-4">
+                               Exploring the diverse ways of quantifying infrastructure improvements and the complex relationship between management needs and developer experience.
+                           </p>
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                        <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
+                            <span class="text-sm text-base-content/50">November 16, 2025</span>
+                            <span class="text-sm text-base-content/50 hidden sm:inline">•</span>
+                            <span class="text-sm text-base-content/50">10 min read</span>
+                            <span class="text-sm text-base-content/50 hidden sm:inline">•</span>
+                            <span class="text-sm text-base-content/50">by Matt Boisvert</span>
+                        </div>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="badge badge-primary badge-sm">infrastructure</span>
+                            <span class="badge badge-accent badge-sm">devops</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="border-l-4 border-accent pl-6 py-4 hover:bg-base-200 transition-colors rounded-r-lg">
                     <h3 class="text-xl font-semibold mb-2">
                         <a href="/blog/taxonomize-your-infrastructure" class="text-primary hover:text-primary-focus transition-colors">
