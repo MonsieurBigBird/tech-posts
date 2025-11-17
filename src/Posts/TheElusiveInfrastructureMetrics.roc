@@ -109,6 +109,7 @@ elusiveInfrastructureContentHtml =
             Well then. There's clearly a tradeoff here. It is obvious that qualitative developer demands and management-facing business decisions matter in terms of empowering an organization to achieve its goals. But how can the sentiments of the users be preserved in a way that it is still measurable and communicable to other stakeholders? How does the impact of the service's
             usability actually manifest in practice? And does this lengthy analysis of this feature's decision-making scale to everything that could / should be improved?
         </p>
+        <br>
         <p>
             In this example, it's not too difficult to reason through the answers. But as you start to unwind more realistic aspects, it becomes clear that:
         </p>
@@ -197,7 +198,7 @@ elusiveInfrastructureContentHtml =
         </p>
         <br>
         <p>
-        On the flip side, there are sometimes infrastructure needs that my colleague Jagdish would describe as "medicine". These changes make large leaps in the direction of critical management-facing issues, but may be perceived as unpleasant by individual users. Maybe the user wants infinite allocations of compute and storage for their
+        On the flip side, there are sometimes infrastructure needs that promote management objectives without an obvious selling point to users. My colleague Jagdish would describe these as "medicine". Maybe the user wants infinite allocations of compute and storage for their
         personal regressions. Maybe they want to ensure that their batch jobs are always scheduled immediately at the front of the queue. In any case, infrastructure engineers obviously can't satisfy the extremities of such requests, and instead are focused on delivering high value to the organization as a whole. The user may not perceive
         that this is the optimal decision, but it will end up benefitting them and speeding up the organization.
 
@@ -262,8 +263,7 @@ elusiveInfrastructureContentHtml =
                     <div>
                         <span class="font-semibold">System complexity</span>
                         <p class="text-sm text-base-content/70 mt-1">
-                        Software complexity is something that has been studied for a <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/code-metrics-maintainability-index-range-and-meaning?view=visualstudio" target="_blank" class="text-primary hover:text-primary-focus underline decoration-2 underline-offset-2 transition-colors">long</a> time! I think today, the more we can reason about this on a more distributed level can make
-                        it easier for us to make decisions about how we choose to design our systems.
+                        Software complexity is something that has been studied for a <a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/code-metrics-maintainability-index-range-and-meaning?view=visualstudio" target="_blank" class="text-primary hover:text-primary-focus underline decoration-2 underline-offset-2 transition-colors">long</a> time! I think today, the more we can reason about this on a more distributed level, the more we can sustain our services for the long term.
                         </p>
                     </div>
                 </li>
@@ -272,9 +272,8 @@ elusiveInfrastructureContentHtml =
                     <div>
                         <span class="font-semibold">"Proprietariness"</span>
                         <p class="text-sm text-base-content/70 mt-1">
-                        The semiconductor industry certainly has no shortage of internal development practices. Quantifying the amount of internal domain SW in a given system
-                        helps to understand the internal maintenance cost (especially if the benefits of similar OSS are missed!), user understanding, and connection with industry
-                        trends.
+                        The semiconductor industry certainly has no shortage of internal development practices. Quantifying the amount of internal SW in a given system
+                        helps to understand the internal maintenance cost (especially if the benefits of similar OSS are missed!).
                         </p>
                     </div>
                 </li>
