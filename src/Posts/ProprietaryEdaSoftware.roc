@@ -42,7 +42,7 @@ proprietaryEdaContentHtml =
     <article class="prose prose-lg max-w-none">
 
         <p>
-            The year is 2026. You, a passionate hardware engineer, sit down at your desk and open up your laptop to start work. First, you open up a remote SSH VNC session displaying a laggy Linux desktop from 2005. Then, you open up a proprietary set of domain-specific software tools to begin your work, whether it is writing RTL (e.g. running sims), performing design verification (e.g. debugging waves), or creating the physical design (e.g. placing and routing).
+            The year is 2026. You, a passionate hardware engineer, sit down at your desk and open up your laptop to start work. First, you open up a remote VNC session displaying a laggy Linux desktop from 2005. Then, you open up a proprietary set of domain-specific software tools to begin your work, whether it is writing RTL (e.g. running sims), performing design verification (e.g. debugging waves), or creating the physical design (e.g. placing and routing).
         </p>
         <br>
         <p>
