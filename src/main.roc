@@ -21,6 +21,7 @@ import About
 import Blog
 import Posts.TaxonomizeYourInfrastructure
 import Posts.TheElusiveInfrastructureMetrics
+import Posts.ProprietaryEdaSoftware
 import Api
 import NotFound
 import Files
@@ -101,6 +102,18 @@ respond! = |req, _|
                         {name: "ETag", value: "\"post-metrics-v1\""}
                     ],
                     body: Str.to_utf8(Posts.TheElusiveInfrastructureMetrics.blogPostPageHtml!("the-elusive-infrastructure-metrics")),
+                },
+            )
+        "/blog/proprietary-eda-software-is-dead-long-live-proprietary-eda-software" ->
+            Ok(
+                {
+                    status: 200,
+                    headers: [
+                        {name: "Content-Type", value: "text/html; charset=utf-8"},
+                        {name: "Cache-Control", value: "public, max-age=7200, s-maxage=86400"},
+                        {name: "ETag", value: "\"post-proprietary-eda-v1\""}
+                    ],
+                    body: Str.to_utf8(Posts.ProprietaryEdaSoftware.blogPostPageHtml!("proprietary-eda-software-is-dead-long-live-proprietary-eda-software")),
                 },
             )
         "/static/css/output.css" -> Files.serveCssFile!({})
