@@ -29,7 +29,7 @@ proprietaryEdaContentHtml =
             <span>•</span>
             <div class="flex space-x-1">
                 <span class="badge badge-primary badge-sm">EDA</span>
-                <span class="badge badge-accent badge-sm">semiconductor</span>
+                <span class="badge badge-accent badge-sm">infrastructure</span>
             </div>
         </div>
         <h1 class="text-4xl font-bold text-primary mb-4">Proprietary EDA Software is Dead, Long Live Proprietary EDA Software!</h1>

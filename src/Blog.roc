@@ -85,19 +85,19 @@ blogContentHtml =
                         </a>
                     </h3>
                            <p class="text-base-content/70 mb-4">
-                               TODO: description.
+                               A look at how the semiconductor industry arrived at hyper-specialized proprietary tooling, and why the AI era may finally be changing that.
                            </p>
                     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                         <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
                             <span class="text-sm text-base-content/50">February 28, 2026</span>
                             <span class="text-sm text-base-content/50 hidden sm:inline">•</span>
-                            <span class="text-sm text-base-content/50">? min read</span>
+                            <span class="text-sm text-base-content/50">7 min read</span>
                             <span class="text-sm text-base-content/50 hidden sm:inline">•</span>
                             <span class="text-sm text-base-content/50">by Matt Boisvert</span>
                         </div>
                         <div class="flex flex-wrap gap-1">
                             <span class="badge badge-primary badge-sm">EDA</span>
-                            <span class="badge badge-accent badge-sm">semiconductor</span>
+                            <span class="badge badge-accent badge-sm">infrastructure</span>
                         </div>
                     </div>
                 </div>
