@@ -80,6 +80,29 @@ blogContentHtml =
             <div class="space-y-6">
                 <div class="border-l-4 border-primary pl-6 py-4 hover:bg-base-200 transition-colors rounded-r-lg">
                     <h3 class="text-xl font-semibold mb-2">
+                        <a href="/blog/ci-cd-at-scale" class="text-primary hover:text-primary-focus transition-colors">
+                            When Simple Pipelines Break Down: CI/CD at Scale
+                        </a>
+                    </h3>
+                           <p class="text-base-content/70 mb-4">
+                               Exploring some of the unique challenges that arise when scaling CI/CD pipelines — keeping mainline green, managing resources, and maintaining developer flow at high velocity.
+                           </p>
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                        <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
+                            <span class="text-sm text-base-content/50">March 12, 2026</span>
+                            <span class="text-sm text-base-content/50 hidden sm:inline">•</span>
+                            <span class="text-sm text-base-content/50">8 min read</span>
+                            <span class="text-sm text-base-content/50 hidden sm:inline">•</span>
+                            <span class="text-sm text-base-content/50">by Matt Boisvert</span>
+                        </div>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="badge badge-primary badge-sm">infrastructure</span>
+                            <span class="badge badge-accent badge-sm">devops</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-l-4 border-secondary pl-6 py-4 hover:bg-base-200 transition-colors rounded-r-lg">
+                    <h3 class="text-xl font-semibold mb-2">
                         <a href="/blog/proprietary-eda-software-is-dead-long-live-proprietary-eda-software" class="text-primary hover:text-primary-focus transition-colors">
                             Proprietary EDA Software is Dead, Long Live Proprietary EDA Software!
                         </a>
