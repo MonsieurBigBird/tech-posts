@@ -22,7 +22,7 @@ import Blog
 import Posts.TaxonomizeYourInfrastructure
 import Posts.TheElusiveInfrastructureMetrics
 import Posts.ProprietaryEdaSoftware
-import Posts.CICDAtScale
+import Posts.WhenSimplePipelinesBreakDown
 import Api
 import NotFound
 import Files
@@ -105,16 +105,16 @@ respond! = |req, _|
                     body: Str.to_utf8(Posts.TheElusiveInfrastructureMetrics.blogPostPageHtml!("the-elusive-infrastructure-metrics")),
                 },
             )
-        "/blog/ci-cd-at-scale" ->
+        "/blog/when-simple-pipelines-break-down-ci-cd-at-scale" ->
             Ok(
                 {
                     status: 200,
                     headers: [
                         {name: "Content-Type", value: "text/html; charset=utf-8"},
                         {name: "Cache-Control", value: "public, max-age=7200, s-maxage=86400"},
-                        {name: "ETag", value: "\"post-cicd-at-scale-v1\""}
+                        {name: "ETag", value: "\"post-when-simple-pipelines-break-down-v1\""}
                     ],
-                    body: Str.to_utf8(Posts.CICDAtScale.blogPostPageHtml!("ci-cd-at-scale")),
+                    body: Str.to_utf8(Posts.WhenSimplePipelinesBreakDown.blogPostPageHtml!("when-simple-pipelines-break-down-ci-cd-at-scale")),
                 },
             )
         "/blog/proprietary-eda-software-is-dead-long-live-proprietary-eda-software" ->

@@ -4,14 +4,14 @@ module [
 
 import Posts.Post
 
-# CICDAtScale.roc
+# WhenSimplePipelinesBreakDown.roc
 # CI/CD at scale blog post content
 
 # Blog post page content
 blogPostPageHtml! : Str => Str
 blogPostPageHtml! = |postSlug|
     when postSlug is
-        "ci-cd-at-scale" -> Posts.Post.renderPostPage!("When Simple Pipelines Break Down: CI/CD at Scale - Blog", "blog", cicdAtScaleContentHtml)
+        "when-simple-pipelines-break-down-ci-cd-at-scale" -> Posts.Post.renderPostPage!("When Simple Pipelines Break Down: CI/CD at Scale - Blog", "blog", cicdAtScaleContentHtml)
         _ -> Posts.Post.renderPostPage!("Post Not Found - Blog", "blog", Posts.Post.notFoundPostContentHtml)
 
 # Blog post content

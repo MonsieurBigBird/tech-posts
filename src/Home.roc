@@ -81,7 +81,7 @@ homeContentHtml =
             <div class="space-y-6">
                 <div class="border-l-4 border-primary pl-6 py-4 hover:bg-base-200 transition-colors rounded-r-lg">
                     <h3 class="text-xl font-semibold mb-2">
-                        <a href="/blog/ci-cd-at-scale" class="text-primary hover:text-primary-focus transition-colors">
+                        <a href="/blog/when-simple-pipelines-break-down-ci-cd-at-scale" class="text-primary hover:text-primary-focus transition-colors">
                             When Simple Pipelines Break Down: CI/CD at Scale
                         </a>
                     </h3>
