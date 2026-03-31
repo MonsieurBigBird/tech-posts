@@ -93,7 +93,7 @@ aboutContentHtml =
             <div class="relative">
                 <img src="/static/images/beach.jpg" alt="Matt at the beach" class="w-full h-68 object-cover object-top rounded-lg">
                 <div class="absolute bottom-4 left-4 bg-black/50 text-white px-3 py-1 rounded-lg text-sm">
-                    Santa Cruz, CA
+                    Half Moon Bay, CA
                 </div>
             </div>
         </div>
