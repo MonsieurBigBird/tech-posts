@@ -23,6 +23,7 @@ import Posts.TaxonomizeYourInfrastructure
 import Posts.TheElusiveInfrastructureMetrics
 import Posts.ProprietaryEdaSoftware
 import Posts.WhenSimplePipelinesBreakDown
+import Posts.SoWhatIsABuildSystemForAnyway
 import Api
 import NotFound
 import Files
@@ -117,6 +118,18 @@ respond! = |req, _|
                     body: Str.to_utf8(Posts.WhenSimplePipelinesBreakDown.blogPostPageHtml!("when-simple-pipelines-break-down-ci-cd-at-scale")),
                 },
             )
+        "/blog/so-what-is-a-build-system-for-anyway" ->
+            Ok(
+                {
+                    status: 200,
+                    headers: [
+                        {name: "Content-Type", value: "text/html; charset=utf-8"},
+                        {name: "Cache-Control", value: "public, max-age=7200, s-maxage=86400"},
+                        {name: "ETag", value: "\"post-so-what-is-a-build-system-for-anyway-v1\""}
+                    ],
+                    body: Str.to_utf8(Posts.SoWhatIsABuildSystemForAnyway.blogPostPageHtml!("so-what-is-a-build-system-for-anyway")),
+                },
+            )
         "/blog/proprietary-eda-software-is-dead-long-live-proprietary-eda-software" ->
             Ok(
                 {
@@ -145,6 +158,9 @@ respond! = |req, _|
         "/static/images/simple_taxonomy.png" -> Files.serveImageFile!("static/images/simple_taxonomy.png", "image/png")
         "/static/images/metrics_diagram.png" -> Files.serveImageFile!("static/images/metrics_diagram.png", "image/png")
         "/static/images/angry_devs.png" -> Files.serveImageFile!("static/images/angry_devs.png", "image/png")
+        "/static/images/hellomake.png" -> Files.serveImageFile!("static/images/hellomake.png", "image/png")
+        "/static/images/polyglot_problem.png" -> Files.serveImageFile!("static/images/polyglot_problem.png", "image/png")
+        "/static/images/buildbarn_architecture.png" -> Files.serveImageFile!("static/images/buildbarn_architecture.png", "image/png")
         "/api/hello" ->
             Ok(
                 {
