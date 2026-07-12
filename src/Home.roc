@@ -97,8 +97,8 @@ homeContentHtml =
                             <span class="text-sm text-base-content/50">by Matt Boisvert</span>
                         </div>
                         <div class="flex flex-wrap gap-1">
-                            <span class="badge badge-primary badge-sm">build systems</span>
-                            <span class="badge badge-accent badge-sm">hardware</span>
+                            <span class="badge badge-primary badge-sm">EDA</span>
+                            <span class="badge badge-accent badge-sm">infrastructure</span>
                         </div>
                     </div>
                 </div>

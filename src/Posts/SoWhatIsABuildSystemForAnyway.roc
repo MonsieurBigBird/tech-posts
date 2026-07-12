@@ -23,8 +23,8 @@ buildSystemContentHtml =
             <span>by Matt Boisvert</span>
             <span>•</span>
             <div class="flex space-x-1">
-                <span class="badge badge-primary badge-sm">build systems</span>
-                <span class="badge badge-accent badge-sm">hardware</span>
+                <span class="badge badge-primary badge-sm">EDA</span>
+                <span class="badge badge-accent badge-sm">infrastructure</span>
             </div>
         </div>
         <h1 class="text-4xl font-bold text-primary mb-4">So, What is a Build System Anyway?</h1>
@@ -53,8 +53,8 @@ buildSystemContentHtml =
         </p>
 
         <div class="bg-base-200 rounded-lg p-6 my-6">
-            <div class="flex flex-col md:flex-row gap-6 items-start">
-                <div class="flex-1 overflow-x-auto">
+            <div class="flex flex-col md:flex-row gap-6 md:items-start">
+                <div class="flex-1 overflow-x-auto min-w-0">
                     <p class="text-xs text-base-content/50 mb-2 font-mono">Makefile</p>
                     <pre class="text-sm font-mono"><code># Source: https://www.cs.colby.edu/maxwell/courses/tutorials/maketutor/
 CC=gcc
@@ -70,8 +70,8 @@ OBJ = hellomake.o hellofunc.o
 hellomake: \$(OBJ)
 	\$(CC) -o $@ $^ \$(CFLAGS)</code></pre>
                 </div>
-                <div class="flex justify-center md:justify-start">
-                    <img src="/static/images/hellomake.png" alt="Dependency graph for the hellomake project" class="rounded-lg max-w-xs w-full h-auto" />
+                <div class="flex justify-center md:justify-start w-full md:w-auto">
+                    <img src="/static/images/hellomake.png" alt="Dependency graph for the hellomake project" class="rounded-lg h-auto max-w-xs md:max-w-xs" />
                 </div>
             </div>
             <p class="text-sm text-base-content/60 mt-4 italic">
