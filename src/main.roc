@@ -24,6 +24,7 @@ import Posts.TheElusiveInfrastructureMetrics
 import Posts.ProprietaryEdaSoftware
 import Posts.WhenSimplePipelinesBreakDown
 import Posts.SoWhatIsABuildSystemForAnyway
+import Posts.AgentsThatComeToYou
 import Api
 import NotFound
 import Files
@@ -130,6 +131,18 @@ respond! = |req, _|
                     body: Str.to_utf8(Posts.SoWhatIsABuildSystemForAnyway.blogPostPageHtml!("so-what-is-a-build-system-for-anyway")),
                 },
             )
+        "/blog/agents-that-come-to-you" ->
+            Ok(
+                {
+                    status: 200,
+                    headers: [
+                        {name: "Content-Type", value: "text/html; charset=utf-8"},
+                        {name: "Cache-Control", value: "public, max-age=7200, s-maxage=86400"},
+                        {name: "ETag", value: "\"post-agents-that-come-to-you-v1\""}
+                    ],
+                    body: Str.to_utf8(Posts.AgentsThatComeToYou.blogPostPageHtml!("agents-that-come-to-you")),
+                },
+            )
         "/blog/proprietary-eda-software-is-dead-long-live-proprietary-eda-software" ->
             Ok(
                 {
@@ -161,6 +174,8 @@ respond! = |req, _|
         "/static/images/hellomake.png" -> Files.serveImageFile!("static/images/hellomake.png", "image/png")
         "/static/images/polyglot_problem.png" -> Files.serveImageFile!("static/images/polyglot_problem.png", "image/png")
         "/static/images/buildbarn_architecture.png" -> Files.serveImageFile!("static/images/buildbarn_architecture.png", "image/png")
+        "/static/images/agent_windows.png" -> Files.serveImageFile!("static/images/agent_windows.png", "image/png")
+        "/static/images/agent_flow.png" -> Files.serveImageFile!("static/images/agent_flow.png", "image/png")
         "/api/hello" ->
             Ok(
                 {

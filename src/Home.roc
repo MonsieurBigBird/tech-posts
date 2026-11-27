@@ -81,6 +81,29 @@ homeContentHtml =
             <div class="space-y-6">
                 <div class="border-l-4 border-primary pl-6 py-4 hover:bg-base-200 transition-colors rounded-r-lg">
                     <h3 class="text-xl font-semibold mb-2">
+                        <a href="/blog/agents-that-come-to-you" class="text-primary hover:text-primary-focus transition-colors">
+                            Agents That Come to You
+                        </a>
+                    </h3>
+                           <p class="text-base-content/70 mb-4">
+                               Parallel agent tabs don't scale. Why I think the next step is narrow agents that run on their own and come to you for approval.
+                           </p>
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                        <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
+                            <span class="text-sm text-base-content/50">November 26, 2026</span>
+                            <span class="text-sm text-base-content/50 hidden sm:inline">•</span>
+                            <span class="text-sm text-base-content/50">5 min read</span>
+                            <span class="text-sm text-base-content/50 hidden sm:inline">•</span>
+                            <span class="text-sm text-base-content/50">by Matt Boisvert</span>
+                        </div>
+                        <div class="flex flex-wrap gap-1">
+                            <span class="badge badge-primary badge-sm">agents</span>
+                            <span class="badge badge-accent badge-sm">infrastructure</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-l-4 border-secondary pl-6 py-4 hover:bg-base-200 transition-colors rounded-r-lg">
+                    <h3 class="text-xl font-semibold mb-2">
                         <a href="/blog/so-what-is-a-build-system-for-anyway" class="text-primary hover:text-primary-focus transition-colors">
                             So, What is a Build System Anyway?
                         </a>
